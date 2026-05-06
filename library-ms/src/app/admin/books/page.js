@@ -327,11 +327,11 @@ export default function AdminBooksPage() {
             <div className="form-row">
               <div className="field">
                 <label>Total Copies</label>
-                <input type="number" min="1" value={form.totalCopies} onChange={(e) => setForm({ ...form, totalCopies: parseInt(e.target.value) })} />
+                <input type="number" min="1" value={form.totalCopies || ""} onChange={(e) => setForm({ ...form, totalCopies: e.target.value === "" ? "" : parseInt(e.target.value) || 1 })} />
               </div>
               <div className="field">
                 <label>Available</label>
-                <input type="number" min="0" value={form.available} onChange={(e) => setForm({ ...form, available: parseInt(e.target.value) })} />
+                <input type="number" min="0" value={form.available || ""} onChange={(e) => setForm({ ...form, available: e.target.value === "" ? "" : parseInt(e.target.value) || 0 })} />
               </div>
             </div>
 

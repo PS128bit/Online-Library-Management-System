@@ -1,12 +1,16 @@
 import { auth } from "./auth";
+import { NextResponse } from "next/server";
 
 export const proxy = auth((req) => {
-  if (!req.auth && req.nextUrl.pathname.startsWith("/dashboard")) {
-    return Response.redirect(new URL("/login", req.nextUrl.origin));
+  const isLoggedIn = !!req.auth;
+  const isDashboard = req.nextUrl.pathname.startsWith("/dashboard");
+  const isAdmin = req.nextUrl.pathname.startsWith("/admin");
+
+  if ((isDashboard || isAdmin) && !isLoggedIn) {
+    return NextResponse.redirect(new URL("/login", req.nextUrl.origin));
   }
-  if (!req.auth && req.nextUrl.pathname.startsWith("/admin")) {
-    return Response.redirect(new URL("/login", req.nextUrl.origin));
-  }
+
+  return NextResponse.next();
 });
 
 export const config = {

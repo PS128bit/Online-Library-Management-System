@@ -108,8 +108,8 @@ export default function HomePage() {
         <div className="nav-links">
           <Link className="nav-link" href="/">Home</Link>
           <Link className="nav-link" href="/login">Browse</Link>
-          <Link className="nav-link" href="/#features">About</Link>
-          <Link className="nav-link" href="/#contact">Contact</Link>
+          <Link className="nav-link" href="/about">About</Link>
+          <Link className="nav-link" href="/contact">Contact</Link>
         </div>
         <div className="nav-btns">
           <Link className="btn-outline" href="/login">Sign in</Link>
@@ -224,8 +224,8 @@ export default function HomePage() {
         <div className="footer-links">
           <Link className="footer-link" href="/">Home</Link>
           <Link className="footer-link" href="/login">Browse</Link>
-          <Link className="footer-link" href="/#features">About</Link>
-          <Link className="footer-link" href="/#contact">Contact</Link>
+          <Link className="footer-link" href="/about">About</Link>
+          <Link className="footer-link" href="/contact">Contact</Link>
         </div>
         <div className="footer-copy">© 2026 Libra. All rights reserved.</div>
       </footer>

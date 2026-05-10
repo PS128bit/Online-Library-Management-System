@@ -47,6 +47,13 @@ model IssuedBook {
   book Book @relation(fields: [bookId], references: [id])
 }
 
+model PasswordResetToken {
+  id      Int      @id @default(autoincrement())
+  email   String
+  token   String   @unique
+  expires DateTime
+}
+
 enum Role {
   STUDENT
   ADMIN

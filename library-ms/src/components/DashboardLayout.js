@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function DashboardLayout({ children }) {
   const { data: session } = useSession();
@@ -324,6 +325,7 @@ export default function DashboardLayout({ children }) {
               <div className="topbar-avatar">{initials}</div>
             </div>
           </div>
+          <Breadcrumbs />
 
           <div className="page-content">{children}</div>
 
